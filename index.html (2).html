@@ -1,0 +1,206 @@
+<!-- ==================== HOME VIEW ==================== -->
+<div id="view-home" class="tab-view block">
+  <!-- Hero Section -->
+  <section class="hero-gradient text-cream py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <div class="inline-flex items-center space-x-2 bg-forest/80 border border-emerald-500/40 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="text-xs font-semibold text-emerald-200 uppercase tracking-wider">Online Order Delivery: 8:00 PM – 3:00 AM • Free Home Delivery</span>
+      </div>
+
+      <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+        Come for the tea.<br><span class="text-amber-200 italic font-normal">Stay for the vibe.</span>
+      </h1>
+      <p class="text-base sm:text-lg text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Experience our iconic <strong class="text-amber-300 font-semibold">Signature Matka Tea</strong>, savory plates of <strong class="text-amber-200">Momo</strong>, <strong class="text-amber-200">Noodles</strong>, <strong class="text-amber-200">Fried Rice</strong>, <strong class="text-amber-200">Biryani</strong>, a wide range of <strong class="text-amber-200">Veg &amp; Non-Veg Snacks</strong>, smooth <strong class="text-amber-200">Cloud Hookah</strong>, and indoor board games in our cozy plant-filled haven.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="animate-pulse-glow w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-terracotta to-amber-600 hover:from-terracotta-dark hover:to-amber-700 text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-xl ring-2 ring-amber-400/50">
+          <i class="fa-solid fa-utensils animate-bounce"></i>
+          <span>Order Online (8PM - 3AM)</span>
+        </a>
+        <button onclick="switchTab('reservation')" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-cream border border-white/30 backdrop-blur-sm px-8 py-3.5 rounded-full font-semibold transition-all">
+          <i class="fa-solid fa-chair"></i>
+          <span>Book a Table (10AM - 8PM)</span>
+        </button>
+        <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 backdrop-blur-sm px-6 py-3.5 rounded-full font-semibold transition-all">
+          <i class="fa-brands fa-google text-amber-300"></i>
+          <span>Rate Us on Google</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Items & Food Menu Showcase -->
+  <section class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">Taste the Magic</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-forest dark:text-emerald-400 font-bold mt-1">Highlighted Sips &amp; Food Specials</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">Serving freshly prepared Momo, Noodles, Fried Rice, Biryani, Veg &amp; Non-Veg snacks, and our famous Matka Tea.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+      
+      <!-- Matka Tea -->
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border-2 border-terracotta/40 hover:border-terracotta transition-all text-center flex flex-col justify-between group">
+        <div>
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-mug-hot"></i>
+          </div>
+          <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-terracotta bg-terracotta/10 px-2.5 py-0.5 rounded-full mb-2">Signature Star</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Matka Tea</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Slow-boiled spiced chai served in traditional clay pots for an earthy aroma and richer sip.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-cream-surface dark:border-dark-border text-xs font-semibold text-terracotta">
+          Authentic Clay Brew
+        </div>
+      </div>
+
+      <!-- Momo -->
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border hover:border-terracotta transition-all text-center flex flex-col justify-between group">
+        <div>
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-bowl-food"></i>
+          </div>
+          <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full mb-2">Steamed &amp; Fried</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Momo</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Delicately wrapped juicy dumplings prepared fresh with spicy sesame and tomato dips.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-cream-surface dark:border-dark-border text-xs font-semibold text-forest dark:text-emerald-400">
+          Veg &amp; Chicken
+        </div>
+      </div>
+
+      <!-- Noodles & Fried Rice -->
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border hover:border-terracotta transition-all text-center flex flex-col justify-between group">
+        <div>
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-rose-500/10 text-rose-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-plate-wheat"></i>
+          </div>
+          <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-rose-700 dark:text-rose-400 bg-rose-500/10 px-2.5 py-0.5 rounded-full mb-2">Wok Specialties</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Noodles &amp; Fried Rice</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Smoky wok-tossed chowmein and seasoned fried rice cooked with fresh greens and savory sauces.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-cream-surface dark:border-dark-border text-xs font-semibold text-forest dark:text-emerald-400">
+          Veg &amp; Non-Veg Options
+        </div>
+      </div>
+
+      <!-- Biryani -->
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border hover:border-terracotta transition-all text-center flex flex-col justify-between group">
+        <div>
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-orange-500/10 text-orange-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-orange-700 dark:text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded-full mb-2">Aromatic Delicacy</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Biryani</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Fragrant long-grain basmati rice infused with caramelized spices, aromatics, and tender cuts.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-cream-surface dark:border-dark-border text-xs font-semibold text-forest dark:text-emerald-400">
+          Rich &amp; Flavorful
+        </div>
+      </div>
+
+      <!-- Veg & Non-Veg Snacks -->
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border hover:border-terracotta transition-all text-center flex flex-col justify-between group">
+        <div>
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full mb-2">Crispy &amp; Savory</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Veg &amp; Non-Veg Snacks</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">A hearty selection of finger foods, bites, and evening snack platters paired delightfully with hot tea.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-cream-surface dark:border-dark-border text-xs font-semibold text-forest dark:text-emerald-400">
+          Fresh Bites
+        </div>
+      </div>
+
+      <!-- Cloud Hookah -->
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border hover:border-terracotta transition-all text-center flex flex-col justify-between group sm:col-span-2 lg:col-span-1">
+        <div>
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-smog"></i>
+          </div>
+          <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-purple-700 dark:text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded-full mb-2">Lounge Feature</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Cloud Hookah</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Smooth, thick clouds available in an array of refreshing mint, fruity, and sweet premium blends.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-cream-surface dark:border-dark-border text-xs font-semibold text-forest dark:text-emerald-400">
+          Dine-In Chill
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Ambience, Board Games & Family Sitting Experience -->
+  <section class="py-14 sm:py-18 bg-cream-surface/60 dark:bg-dark-card/50 border-y border-cream-surface dark:border-dark-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">The Mantra Vibe</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-forest dark:text-emerald-400 font-bold mt-1">Green Plants &amp; Warm Lighting Ambience</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">Cozy sitting space perfect for family &amp; friends gathering, conversations, and relaxed evenings.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Ambience -->
+        <div class="bg-white dark:bg-dark-card p-8 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+          <div class="w-14 h-14 rounded-2xl bg-forest/10 dark:bg-emerald-950/50 text-forest dark:text-emerald-400 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-forest dark:text-emerald-300 mb-3">Green Plants &amp; Warm Lighting Ambience</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Surrounded by potted succulents, leafy greens, and soft warm low lighting that immediately puts you in a tranquil, peaceful mood after a busy day.
+          </p>
+        </div>
+
+        <!-- Cozy Sitting Space -->
+        <div class="bg-white dark:bg-dark-card p-8 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+          <div class="w-14 h-14 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-forest dark:text-emerald-300 mb-3">Cozy Sitting Space for Gatherings</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            A cozy sitting space perfect for family &amp; friends gathering, celebrations, heartfelt reunions, and comfortable private dining sessions.
+          </p>
+        </div>
+
+        <!-- Board Games -->
+        <div class="bg-white dark:bg-dark-card p-8 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-dice"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-forest dark:text-emerald-300 mb-3">Board Games (UNO, Jenga Block, Ludo)</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Enjoy our board games collection featuring <strong>UNO</strong>, <strong>Jenga Block</strong>, and <strong>Ludo</strong> to keep everyone smiling while awaiting meals.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Late Night Free Delivery Banner -->
+      <div class="mt-12 bg-gradient-to-r from-forest to-forest-dark dark:from-dark-bg dark:to-emerald-950/70 text-cream rounded-3xl p-8 sm:p-10 border border-emerald-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div>
+          <span class="inline-block bg-terracotta text-forest-dark text-[11px] uppercase tracking-wider font-bold px-3 py-1 rounded-full mb-2">
+            Every Night • 8:00 PM to 3:00 AM
+          </span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-white font-bold">Late Night Food &amp; Beverages Delivery</h3>
+          <p class="text-gray-300 text-sm mt-1 max-w-xl">
+            Craving Momo, hot Biryani, savory Noodles, Fried Rice, or refreshing snacks late at night? Order between 8 PM and 3 AM with <strong class="text-amber-300">Free Home Delivery</strong> right to your door.
+          </p>
+        </div>
+        <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="animate-pulse-glow flex-shrink-0 inline-flex items-center space-x-2 bg-terracotta hover:bg-terracotta-dark text-forest-dark font-extrabold px-8 py-4 rounded-full text-sm transition-all shadow-lg ring-2 ring-terracotta/60">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Order Food (8PM - 3AM)</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>

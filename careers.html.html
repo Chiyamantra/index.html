@@ -1,0 +1,98 @@
+<!-- ==================== CAREERS VIEW ==================== -->
+<div id="view-careers" class="tab-view hidden">
+  <section class="py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">Join Our Team</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest dark:text-emerald-400 mt-1">Careers at Chiya Mantra</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">Become part of our vibrant, warm, hospitality-driven family in Gaighat.</p>
+    </div>
+
+    <!-- Vacancies Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-cream-surface dark:border-dark-border shadow-sm hover:border-terracotta transition-colors flex flex-col justify-between">
+        <div>
+          <span class="inline-block bg-terracotta/10 text-terracotta text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Full-time / Part-time</span>
+          <h3 class="font-serif text-xl font-bold text-forest dark:text-emerald-300">Waiter / Waitress</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Deliver warm service, communicate table orders, and maintain cozy dining vibes.</p>
+        </div>
+        <button onclick="applyForRole('Waiter / Waitress')" class="mt-6 w-full py-2.5 px-4 bg-forest dark:bg-emerald-700 hover:bg-forest-dark dark:hover:bg-emerald-800 text-white rounded-xl text-sm font-semibold transition-colors">
+          Apply Now
+        </button>
+      </div>
+
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-cream-surface dark:border-dark-border shadow-sm hover:border-terracotta transition-colors flex flex-col justify-between">
+        <div>
+          <span class="inline-block bg-forest/10 dark:bg-emerald-950/40 text-forest dark:text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Day / Evening Shift</span>
+          <h3 class="font-serif text-xl font-bold text-forest dark:text-emerald-300">Cashier</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Manage POS billing, register operations, and handle online delivery dispatches.</p>
+        </div>
+        <button onclick="applyForRole('Cashier')" class="mt-6 w-full py-2.5 px-4 bg-forest dark:bg-emerald-700 hover:bg-forest-dark dark:hover:bg-emerald-800 text-white rounded-xl text-sm font-semibold transition-colors">
+          Apply Now
+        </button>
+      </div>
+
+      <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-cream-surface dark:border-dark-border shadow-sm hover:border-terracotta transition-colors flex flex-col justify-between">
+        <div>
+          <span class="inline-block bg-amber-600/10 text-amber-700 dark:text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Evening / Late-Night Shift</span>
+          <h3 class="font-serif text-xl font-bold text-forest dark:text-emerald-300">Dishwasher</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Maintain hygiene, clean traditional matkas and kitchenware promptly.</p>
+        </div>
+        <button onclick="applyForRole('Dishwasher')" class="mt-6 w-full py-2.5 px-4 bg-forest dark:bg-emerald-700 hover:bg-forest-dark dark:hover:bg-emerald-800 text-white rounded-xl text-sm font-semibold transition-colors">
+          Apply Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Application Form via FormSubmit -->
+    <div id="application-form-container" class="max-w-2xl mx-auto bg-white dark:bg-dark-card p-8 sm:p-10 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border transition-colors duration-300">
+      <div class="text-center mb-8">
+        <h3 class="font-serif text-2xl font-bold text-forest dark:text-emerald-400">Submit Your Interest</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Upload your details and CV directly to our hiring inbox.</p>
+      </div>
+
+      <form action="https://formsubmit.co/info.chiyamantra@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="return validateFileSize()" class="space-y-5">
+        <input type="hidden" name="_subject" value="New Job Application - Chiya Mantra">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div>
+          <label for="fullName" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Full Name *</label>
+          <input type="text" id="fullName" name="Full Name" required placeholder="e.g. Birat Thapa" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg dark:text-gray-100 focus:ring-2 focus:ring-terracotta outline-none text-sm">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="contactNo" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Contact No. *</label>
+            <input type="tel" id="contactNo" name="Contact Number" required placeholder="+977-98XXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg dark:text-gray-100 focus:ring-2 focus:ring-terracotta outline-none text-sm">
+          </div>
+          <div>
+            <label for="emailAddr" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Email Address *</label>
+            <input type="email" id="emailAddr" name="Email" required placeholder="youremail@domain.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg dark:text-gray-100 focus:ring-2 focus:ring-terracotta outline-none text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label for="roleInterest" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Position / Area of Interest *</label>
+          <select id="roleInterest" name="Position Applied" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg dark:text-gray-100 focus:ring-2 focus:ring-terracotta outline-none text-sm">
+            <option value="">-- Choose Position --</option>
+            <option value="Waiter / Waitress">Waiter / Waitress</option>
+            <option value="Cashier">Cashier</option>
+            <option value="Dishwasher">Dishwasher</option>
+            <option value="Kitchen Helper / Cook">Kitchen Helper / Cook</option>
+            <option value="Other Future Vacancies">Other Upcoming Vacancies</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="resumeFile" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Upload CV / Resume *</label>
+          <input type="file" id="resumeFile" name="attachment" accept=".doc,.docx,.pdf,.jpg,.jpeg,.png" required class="w-full px-3 py-2 border border-gray-200 dark:border-dark-border dark:bg-dark-bg dark:text-gray-100 rounded-xl text-sm outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-terracotta file:text-forest-dark hover:file:bg-terracotta-dark">
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Accepted: doc, docx, pdf, jpg, jpeg, png. Max file size: <strong>15MB</strong></p>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-terracotta hover:bg-terracotta-dark text-forest-dark font-bold rounded-xl transition-all shadow-md mt-4">
+          Upload &amp; Submit Application
+        </button>
+      </form>
+    </div>
+  </section>
+</div>
