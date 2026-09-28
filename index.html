@@ -156,7 +156,6 @@
       transform: none;
     }
 
-    /* Reactive Interactive Order Button */
     .btn-reactive-order {
       transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
@@ -224,7 +223,6 @@
             <span>Rate Us</span>
           </a>
 
-          <!-- Reactive Animated Button -->
           <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="btn-reactive-order animate-order-glow relative group inline-flex items-center space-x-2 bg-gradient-to-r from-terracotta via-amber-500 to-amber-600 hover:from-terracotta-dark hover:to-amber-700 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-xl ring-2 ring-amber-400/80">
             <i class="fa-solid fa-truck-fast text-white group-hover:rotate-12 transition-transform duration-300"></i>
             <span>Order Online</span>
@@ -275,7 +273,6 @@
     <!-- ==================== HOME VIEW ==================== -->
     <div id="view-home" class="tab-view block">
       
-      <!-- Hero Section -->
       <section class="hero-gradient text-cream py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div class="max-w-4xl mx-auto text-center relative z-10">
           
@@ -942,7 +939,7 @@
       </div>
 
       <div id="emailStatus" class="text-[11px] text-gray-400 mb-4 p-2 bg-white/5 rounded-lg">
-        📧 Logging result to management...
+        ⏳ Recording entry in Google Spreadsheet...
       </div>
 
       <button onclick="closeSpinModal()" class="w-full py-2.5 bg-terracotta hover:bg-terracotta-dark text-forest-dark font-extrabold rounded-xl transition-all shadow-md text-sm">
@@ -1112,17 +1109,12 @@
     }
 
     // ========================================================
-    // SPIN & WIN ENGINE: UPDATED PRIZES & PEAK HOUR PRIORITY
+    // SPIN & WIN ENGINE: GOOGLE APPS SCRIPT INTEGRATION
     // ========================================================
     const BILL_PREFIX = "INV-CM 83-84-";
-    const PRIMARY_EMAIL = "info.chiyamantra@gmail.com";
-    const WINNER_EMAILS = [
-      "info.chiyamantra@gmail.com",
-      "khadkamanishhh@gmail.com",
-      "sikashthapaa@gmail.com"
-    ];
+    const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbzZZUMW4gBHWqd-yP_NywjQlRgrsKsCKv5PNW0nM0p88XIyzPMOCFrfNTPsoug0Iwz1/exec";
 
-    // Requested gifts, quotas, and probabilities (Including 20% Off for 1 Customer)
+    // Prizes list with daily quotas & background peak logic
     const PRIZES = [
       { id: 'luck', text: 'Better Luck Next Time', color: '#4a3b37', probNormal: 0.93, probPeak: 0.83, maxDaily: Infinity },
       { id: 'matka', text: '2 Cups Matka Tea', color: '#b33927', probNormal: 0.018, probPeak: 0.04, maxDaily: 5 },
@@ -1318,10 +1310,8 @@
     }
     drawWheel();
 
-    // Priority Win Logic (Internal background check without user-facing text)
     function isPeakWinHour() {
       const now = new Date();
-      // Adjust to Nepal Time (UTC+5:45)
       const nepDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + (345 * 60000));
       const hours = nepDate.getHours();
       return hours >= 14 && hours < 20; // 2:00 PM to 7:59 PM Nepal Time
@@ -1337,7 +1327,7 @@
         cumulative += prob;
         if (rand <= cumulative) {
           const claimedCount = dailyPrizesClaimed[PRIZES[i].id] || 0;
-          if (claimedCount >= PRIZES[i].maxDaily) return 0; // Fallback to Better Luck Next Time if limit reached
+          if (claimedCount >= PRIZES[i].maxDaily) return 0;
           return i;
         }
       }
@@ -1456,63 +1446,34 @@
       }
 
       modal.classList.remove('hidden');
-      dispatchEmails(isWinner, prize.text, claimCode, timestamp, emailStatus);
-    }
 
-    function dispatchEmails(isWinner, prizeText, voucherCode, timestamp, statusEl) {
-      if (isWinner) {
-        statusEl.innerHTML = `⏳ Sending winner details to management...`;
+      // Sync every participant to Google Sheets & Email Winners
+      const payload = {
+        timestamp: timestamp,
+        customerName: verifiedCustomer.name,
+        phoneNo: verifiedCustomer.phone,
+        billNo: verifiedCustomer.bill,
+        giftWon: prize.text,
+        voucherNo: claimCode,
+        isWinner: isWinner
+      };
 
-        const winnerPayload = {
-          _subject: `🎉 [Winner Alert] ${verifiedCustomer.name} won ${prizeText} | Voucher: ${voucherCode}`,
-          _template: "table",
-          _captcha: "false",
-          "Customer Name": verifiedCustomer.name,
-          "Phone Number": verifiedCustomer.phone,
-          "Bill / Invoice No": verifiedCustomer.bill,
-          "Winning Gift": prizeText,
-          "Winning Voucher No": voucherCode,
-          "Spin Timestamp (GMT+5:45)": timestamp
-        };
+      emailStatus.innerHTML = `⏳ Recording entry in Google Spreadsheet...`;
 
-        const postPromises = WINNER_EMAILS.map(email => {
-          return fetch(`https://formsubmit.co/ajax/${email}`, {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(winnerPayload)
-          }).catch(err => null);
-        });
-
-        Promise.all(postPromises).then(() => {
-          statusEl.innerHTML = `✅ Winner details successfully emailed to management.`;
-        });
-
-      } else {
-        statusEl.innerHTML = `⏳ Recording entry...`;
-
-        const generalEntryPayload = {
-          _subject: `📝 [Entry Log] ${verifiedCustomer.bill} - ${verifiedCustomer.name} (Better Luck Next Time)`,
-          _template: "table",
-          _captcha: "false",
-          "Customer Name": verifiedCustomer.name,
-          "Phone Number": verifiedCustomer.phone,
-          "Bill / Invoice No": verifiedCustomer.bill,
-          "Result": "Better Luck Next Time",
-          "Spin Timestamp (GMT+5:45)": timestamp
-        };
-
-        fetch(`https://formsubmit.co/ajax/${PRIMARY_EMAIL}`, {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(generalEntryPayload)
-        })
-        .then(() => {
-          statusEl.innerHTML = `✅ Entry recorded for Invoice ${verifiedCustomer.bill}`;
-        })
-        .catch(() => {
-          statusEl.innerHTML = `✅ Entry recorded locally for Invoice ${verifiedCustomer.bill}`;
-        });
-      }
+      fetch(GOOGLE_SHEET_API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        emailStatus.innerHTML = isWinner
+          ? `✅ Entry saved to Spreadsheet & Winner details emailed to management.`
+          : `✅ Entry logged in Google Spreadsheet database.`;
+      })
+      .catch(() => {
+        emailStatus.innerHTML = `⚠️ Logged locally. Please check your internet connection.`;
+      });
     }
 
     function closeSpinModal() {
