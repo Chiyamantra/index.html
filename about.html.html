@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png">
+  <title>About Us | Chiya Mantra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C99E32',
+            forest: '#0E1E17',
+            'forest-dark': '#08120E',
+            cream: '#FAF8F5',
+            'cream-surface': '#EFE9DE',
+            charcoal: '#171615',
+            'dark-bg': '#0B0D0C',
+            'dark-card': '#141816',
+            'dark-border': '#262D29',
+          },
+          fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Poppins', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>body { font-family: 'Poppins', sans-serif; }</style>
+</head>
+<body class="flex flex-col min-h-screen bg-cream text-charcoal dark:bg-dark-bg dark:text-gray-100">
+
+  <header class="sticky top-0 z-50 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-cream-surface dark:border-dark-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center space-x-3">
+          <img src="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png" alt="Logo" class="w-12 h-12 rounded-full border-2 border-terracotta/40">
+          <span class="font-serif text-2xl font-bold text-forest dark:text-emerald-400">Chiya Mantra</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-7">
+          <a href="/" class="py-2 text-sm font-medium hover:text-terracotta">Home</a>
+          <a href="/offers" class="py-2 text-sm font-semibold hover:text-terracotta flex items-center space-x-1.5"><span>Offers &amp; Spin</span></a>
+          <a href="/about" class="py-2 text-sm font-semibold text-terracotta border-b-2 border-terracotta">About Us</a>
+          <a href="/reservation" class="py-2 text-sm font-medium hover:text-terracotta">Book a Table</a>
+          <a href="/careers" class="py-2 text-sm font-medium hover:text-terracotta">Careers</a>
+          <a href="/contact" class="py-2 text-sm font-medium hover:text-terracotta">Contact Us</a>
+        </nav>
+        <div class="flex items-center space-x-2 md:hidden">
+          <button id="mobileMenuBtn" class="text-charcoal dark:text-gray-100 p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-cream-surface dark:border-dark-border bg-cream dark:bg-dark-bg px-4 pt-3 pb-6 space-y-2">
+      <a href="/" class="block px-4 py-2.5 rounded-lg text-base font-medium">Home</a>
+      <a href="/offers" class="block px-4 py-2.5 rounded-lg text-base font-semibold text-amber-600">🎁 Offers &amp; Spin Wheel</a>
+      <a href="/about" class="block px-4 py-2.5 rounded-lg text-base font-semibold bg-terracotta text-forest-dark">About Us</a>
+      <a href="/reservation" class="block px-4 py-2.5 rounded-lg text-base font-medium">Book a Table</a>
+      <a href="/careers" class="block px-4 py-2.5 rounded-lg text-base font-medium">Careers</a>
+      <a href="/contact" class="block px-4 py-2.5 rounded-lg text-base font-medium">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="flex-grow py-14 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">About Chiya Mantra</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-forest dark:text-emerald-400 mt-2">Come for the tea. Stay for the vibe.</h1>
+    </div>
+
+    <div class="bg-white dark:bg-dark-card p-8 sm:p-12 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border leading-relaxed space-y-6 text-base sm:text-lg font-light">
+      <p class="font-normal text-forest dark:text-emerald-300 text-lg sm:text-xl leading-relaxed">
+        Welcome to Chiya Mantra—a cozy destination where flavorful food, refreshing drinks, and a peaceful atmosphere come together to create the perfect place to relax, connect, and enjoy good moments[cite: 1].
+      </p>
+      <p>
+        At Chiya Mantra, tea is at the heart of what we do[cite: 1]. We offer a variety of teas to suit every taste, with our signature Matka Tea taking center stage[cite: 1]. Alongside our tea selection, we serve a range of flavorful food and refreshing beverages, prepared with quality ingredients and a passion for great taste[cite: 1]. We proudly serve fresh Momo, Noodles, Fried Rice, Biryani, and an assorted menu of Veg &amp; Non-Veg snacks[cite: 1].
+      </p>
+      <p>
+        Our café is designed to offer a peaceful and cozy atmosphere, surrounded by lush plants, warm low lighting, and a relaxed ambience[cite: 1]. It’s the perfect setting for friends and families to hang out, catch up, and create memorable moments[cite: 1].
+      </p>
+      <p>
+        For those who enjoy a laid-back experience, we also offer Hookah and a selection of indoor board games (including UNO, Jenga Block, and Ludo) to keep you entertained while waiting or simply enjoying time with your company[cite: 1].
+      </p>
+      <p>
+        And when you’d rather enjoy Chiya Mantra from the comfort of your home, we’ve got you covered with our late-night home delivery service[cite: 1]. Whether it’s a late-night craving, a cozy evening at home, or simply your favorite food and tea, you can enjoy the Chiya Mantra experience wherever you are[cite: 1].
+      </p>
+      <div class="pt-4 border-t border-cream-surface dark:border-dark-border">
+        <p class="font-medium text-forest dark:text-emerald-300 italic">
+          At Chiya Mantra, we believe a great café experience is about more than food and drinks[cite: 1]. It’s about good tea, flavorful food, great company, a welcoming atmosphere, and moments worth remembering[cite: 1].
+        </p>
+        <p class="mt-4 font-serif text-terracotta font-bold text-xl">
+          Come for the tea. Stay for the vibe. Enjoy Chiya Mantra anytime, anywhere[cite: 1].
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-forest-dark text-cream pt-10 pb-6 border-t border-forest text-center text-xs">
+    <p>© 2026 Chiya Mantra. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

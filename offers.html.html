@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png">
+  <title>Offers & Spin to Win | Chiya Mantra</title>
+  <meta name="description" content="Spend Rs. 1,000 or more at Chiya Mantra and spin the wheel for a chance to win Matka Tea, Chicken Momo, Cloud Hookah, Keema Noodles, vouchers, and more!">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C99E32',
+            'terracotta-dark': '#A67C1E',
+            forest: '#0E1E17',
+            'forest-dark': '#08120E',
+            cream: '#FAF8F5',
+            'cream-surface': '#EFE9DE',
+            charcoal: '#171615',
+            'dark-bg': '#0B0D0C',
+            'dark-card': '#141816',
+            'dark-border': '#262D29',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .wheel-wrapper {
+      position: relative;
+      width: 360px;
+      height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 420px) {
+      .wheel-wrapper, #spinWheelCanvas { width: 310px; height: 310px; }
+    }
+    .wheel-pointer {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 17px solid transparent;
+      border-right: 17px solid transparent;
+      border-top: 34px solid #e74c3c;
+      z-index: 15;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+    }
+    .spin-center-btn {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, #e74c3c, #b32b1c);
+      color: #fff;
+      border: 4px solid #C99E32;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      outline: none;
+      z-index: 10;
+      transition: transform 0.15s ease;
+    }
+    .spin-center-btn:hover:not(:disabled) { transform: scale(1.06); }
+    .spin-center-btn:disabled { background: #474747; border-color: #707070; color: #9e9e9e; cursor: not-allowed; }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-cream text-charcoal dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300">
+
+  <div class="bg-forest-dark text-cream text-xs sm:text-sm py-2 px-4 text-center flex flex-wrap items-center justify-center gap-2 border-b border-forest">
+    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-terracotta text-forest-dark animate-pulse">
+      <i class="fa-solid fa-motorcycle mr-1"></i> Night Owl Food Delivery
+    </span>
+    <p class="leading-tight">
+      Late Night Food &amp; Beverages Delivery: <strong class="text-amber-300">8:00 PM – 3:00 AM</strong> Every Night
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <span class="inline-block bg-emerald-700/90 text-emerald-100 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-emerald-500/50">Free Home Delivery</span>
+    </p>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-cream-surface dark:border-dark-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center space-x-3 group">
+          <img src="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png" alt="Chiya Mantra Logo" class="w-12 h-12 rounded-full object-cover border-2 border-terracotta/40">
+          <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-400">Chiya Mantra</span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-7">
+          <a href="/" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Home</a>
+          <a href="/offers" class="py-2 text-sm font-semibold text-terracotta border-b-2 border-terracotta flex items-center space-x-1.5">
+            <span>Offers &amp; Spin</span>
+            <span class="bg-gradient-to-r from-amber-500 to-terracotta text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">WIN</span>
+          </a>
+          <a href="/about" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">About Us</a>
+          <a href="/reservation" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Book a Table</a>
+          <a href="/careers" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Careers</a>
+          <a href="/contact" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Contact Us</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center space-x-3">
+          <button onclick="toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border text-charcoal dark:text-amber-300">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </button>
+          <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="inline-flex items-center space-x-2 bg-gradient-to-r from-terracotta to-amber-600 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-md">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Order Online</span>
+          </a>
+        </div>
+
+        <div class="flex items-center space-x-2 md:hidden">
+          <button onclick="toggleTheme()" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border">
+            <i id="themeIconMobile" class="fa-solid fa-moon text-sm"></i>
+          </button>
+          <button id="mobileMenuBtn" class="text-charcoal dark:text-gray-100 p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-cream-surface dark:border-dark-border bg-cream dark:bg-dark-bg px-4 pt-3 pb-6 space-y-2">
+      <a href="/" class="block px-4 py-2.5 rounded-lg text-base font-medium">Home</a>
+      <a href="/offers" class="block px-4 py-2.5 rounded-lg text-base font-semibold bg-terracotta text-forest-dark">🎁 Offers &amp; Spin Wheel</a>
+      <a href="/about" class="block px-4 py-2.5 rounded-lg text-base font-medium">About Us</a>
+      <a href="/reservation" class="block px-4 py-2.5 rounded-lg text-base font-medium">Book a Table</a>
+      <a href="/careers" class="block px-4 py-2.5 rounded-lg text-base font-medium">Careers</a>
+      <a href="/contact" class="block px-4 py-2.5 rounded-lg text-base font-medium">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-white dark:bg-dark-card p-6 rounded-3xl border border-cream-surface dark:border-dark-border shadow-sm">
+      <div>
+        <span class="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs uppercase tracking-wider font-bold px-3 py-1 rounded-full">
+          <i class="fa-solid fa-gift text-amber-500"></i> Exclusive Rewards Program
+        </span>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-forest dark:text-emerald-400 mt-2">Spend Rs. 1,000 or More &amp; Spin to Win</h1>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Receive one spin per verified invoice of Rs. 1,000 or above and win delicious cafe treats!</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="wheelSoundToggle" class="px-4 py-2 rounded-xl text-xs font-semibold border border-gray-300 dark:border-dark-border bg-cream-surface/60 dark:bg-dark-bg">🔊 Sound On</button>
+        <a href="tel:+9779811329810" class="px-4 py-2 rounded-xl text-xs font-bold bg-forest text-white dark:bg-emerald-700">📞 +977-9811329810</a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Invoice Verification -->
+      <div class="lg:col-span-4 bg-white dark:bg-dark-card p-6 sm:p-7 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+        <div id="checkinSection">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-receipt text-terracotta text-lg"></i>
+            <h2 class="font-serif text-xl font-bold text-forest dark:text-emerald-300">Invoice Verification</h2>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mb-5">Please enter your details and official invoice number to unlock the wheel.</p>
+
+          <div id="duplicateWarning" class="hidden mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs"></div>
+
+          <form id="customerForm" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Customer Full Name *</label>
+              <input type="text" id="custName" required placeholder="e.g. Sujan Sharma" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Phone Number *</label>
+              <input type="tel" id="custPhone" required pattern="[0-9]{10}" placeholder="98XXXXXXXX" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Invoice Number * (Above Rs. 999)</label>
+              <div class="flex rounded-xl border border-gray-200 dark:border-dark-border overflow-hidden">
+                <span class="bg-gray-100 dark:bg-dark-bg text-terracotta font-bold text-xs px-3 py-2.5 border-r border-gray-200 dark:border-dark-border select-none whitespace-nowrap flex items-center">INV-CM 83-84-</span>
+                <input type="text" id="custBillSuffix" required placeholder="XXXX" class="w-full px-3 py-2.5 bg-white dark:bg-dark-card text-sm font-semibold uppercase">
+              </div>
+            </div>
+            <button type="submit" class="w-full py-3 bg-gradient-to-r from-terracotta to-amber-600 text-white font-bold rounded-xl text-sm shadow-md">Verify Bill &amp; Unlock Wheel</button>
+          </form>
+        </div>
+
+        <div id="verifiedSection" class="hidden text-center p-5 rounded-2xl bg-emerald-500/10 border border-dashed border-emerald-500 text-emerald-800 dark:text-emerald-300">
+          <span class="text-xs uppercase font-semibold block text-emerald-600 dark:text-emerald-400">Invoice Verified</span>
+          <strong id="badgeName" class="text-lg font-serif block my-1">Guest</strong>
+          <span id="badgeBill" class="text-xs font-bold block text-gray-700 dark:text-gray-300"></span>
+          <span id="badgePhone" class="text-xs text-gray-500 dark:text-gray-400 block mt-0.5"></span>
+          <p class="text-[11px] text-emerald-600 dark:text-emerald-400 mt-3 font-semibold animate-pulse">👉 Click SPIN in the center of the wheel now!</p>
+        </div>
+      </div>
+
+      <!-- Wheel Component -->
+      <div class="lg:col-span-5 flex flex-col items-center justify-center bg-white dark:bg-dark-card p-6 sm:p-8 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+        <div class="wheel-wrapper">
+          <div class="wheel-pointer"></div>
+          <canvas id="spinWheelCanvas" width="360" height="360" class="rounded-full shadow-2xl border-4 border-amber-600/40 bg-[#1e1311]"></canvas>
+          <button id="spinWheelBtn" class="spin-center-btn" disabled>SPIN</button>
+        </div>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-5 text-center">Verify your invoice on the left to activate the spin button.</p>
+      </div>
+
+      <!-- Recent Winners -->
+      <div class="lg:col-span-3 bg-white dark:bg-dark-card p-6 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-cream-surface dark:border-dark-border">
+          <h2 class="font-serif text-lg font-bold text-forest dark:text-emerald-300 flex items-center gap-1.5"><i class="fa-solid fa-trophy text-amber-500"></i> Recent Winners</h2>
+          <span class="text-[10px] uppercase font-bold text-terracotta bg-terracotta/10 px-2 py-0.5 rounded-full">Live Log</span>
+        </div>
+        <ul id="recentWinnersList" class="space-y-2.5 max-h-[360px] overflow-y-auto pr-1 text-xs"></ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Winner Modal -->
+  <div id="resultModal" class="hidden fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#1b1413] border-2 border-terracotta text-cream p-6 sm:p-8 rounded-3xl max-w-md w-full text-center shadow-2xl">
+      <h3 id="modalTitle" class="font-serif text-2xl font-bold text-terracotta mb-2">Congratulations!</h3>
+      <p id="modalPrize" class="text-base sm:text-lg font-semibold text-white mb-3"></p>
+
+      <div id="screenshotPrompt" class="mb-4 p-3 rounded-xl bg-amber-500/20 border border-dashed border-amber-400 text-amber-200 text-xs font-semibold">
+        📸 <strong>Please take a screenshot</strong> of this page and your voucher number to claim your prize!
+      </div>
+
+      <div id="winDetails" class="bg-black/50 border border-dashed border-terracotta p-4 rounded-2xl mb-4 text-left text-xs space-y-1.5">
+        <div><strong class="text-gray-400">Customer:</strong> <span id="vCustName" class="text-white font-semibold"></span></div>
+        <div><strong class="text-gray-400">Invoice:</strong> <span id="vCustBill" class="text-white font-semibold"></span></div>
+        <div class="bg-emerald-500/10 border-2 border-emerald-500 rounded-xl p-3 my-2 text-center">
+          <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">Exclusive Voucher Code</span>
+          <span id="vNumericCode" class="text-2xl sm:text-3xl font-mono font-extrabold text-emerald-400 tracking-widest block">000000</span>
+        </div>
+        <p class="text-[11px] text-center text-gray-400 pt-1">Valid for 15 days (10:00 AM – 5:00 PM) upon presenting your original invoice.</p>
+      </div>
+
+      <div id="modalContactActions" class="flex items-center justify-center gap-2 mb-4">
+        <a href="tel:+9779811329810" class="px-3.5 py-2 rounded-xl bg-forest text-white text-xs font-bold">📞 Call Staff</a>
+        <a id="modalWaBtn" href="#" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#25d366] text-white text-xs font-bold">💬 WhatsApp Staff</a>
+      </div>
+
+      <div id="emailStatus" class="text-[11px] text-gray-400 mb-4 p-2 bg-white/5 rounded-lg">⏳ Recording entry in Google Spreadsheet...</div>
+      <button onclick="closeSpinModal()" class="w-full py-2.5 bg-terracotta text-forest-dark font-extrabold rounded-xl text-sm">Done / Close</button>
+    </div>
+  </div>
+
+  <footer class="bg-forest-dark text-cream pt-10 pb-6 border-t border-forest text-center text-xs">
+    <p>© 2026 Chiya Mantra. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    const BILL_PREFIX = "INV-CM 83-84-";
+    const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbzZZUMW4gBHWqd-yP_NywjQlRgrsKsCKv5PNW0nM0p88XIyzPMOCFrfNTPsoug0Iwz1/exec";
+
+    const PRIZES = [
+      { id: 'milktea1', text: '1 Cup Milk Tea', color: '#4a3b37', probNormal: 0.91, probPeak: 0.81, maxDaily: Infinity },
+      { id: 'matka', text: '2 Cups Matka Tea', color: '#b33927', probNormal: 0.018, probPeak: 0.04, maxDaily: 5 },
+      { id: 'momo', text: '1 Plate Chicken Momo', color: '#cf6a17', probNormal: 0.014, probPeak: 0.03, maxDaily: 3 },
+      { id: 'hookah', text: '1 Cloud Hookah', color: '#8e44ad', probNormal: 0.008, probPeak: 0.018, maxDaily: 2 },
+      { id: 'chatpate', text: '1 Plate Special Chatpate', color: '#d35400', probNormal: 0.01, probPeak: 0.022, maxDaily: 2 },
+      { id: 'keema', text: '1 Plate Keema Noodles', color: '#e67e22', probNormal: 0.01, probPeak: 0.022, maxDaily: 2 },
+      { id: 'milk', text: '3 Cups Milk Tea', color: '#c44569', probNormal: 0.012, probPeak: 0.03, maxDaily: 3 },
+      { id: 'discount20', text: '20% Off on Food', color: '#27ae60', probNormal: 0.006, probPeak: 0.023, maxDaily: 1 },
+      { id: 'voucher', text: 'Rs 1000 Voucher', color: '#f39c12', probNormal: 0.002, probPeak: 0.005, maxDaily: 1 }
+    ];
+
+    const todayKey = 'cm_spins_' + new Date().toISOString().slice(0, 10);
+    let dailyPrizesClaimed = JSON.parse(localStorage.getItem(todayKey)) || {};
+    let usedBills = JSON.parse(localStorage.getItem('cm_used_bills')) || {};
+    let usedCodes = JSON.parse(localStorage.getItem('cm_used_codes')) || {};
+    let recentWinners = JSON.parse(localStorage.getItem('cm_recent_winners')) || [];
+
+    let verifiedCustomer = null;
+    let soundEnabled = true;
+    let isSpinning = false;
+    let currentRotation = 0;
+
+    function renderRecentWinners() {
+      const listEl = document.getElementById('recentWinnersList');
+      if (!listEl) return;
+      listEl.innerHTML = '';
+      if (recentWinners.length === 0) {
+        listEl.innerHTML = `<li class="text-gray-400 text-center py-6 text-xs">No winners yet today. Be the first to spin!</li>`;
+        return;
+      }
+      recentWinners.slice(-10).reverse().forEach(item => {
+        const li = document.createElement('li');
+        li.className = "flex justify-between items-center py-2 border-b border-cream-surface dark:border-dark-border";
+        li.innerHTML = `
+          <span class="font-semibold text-charcoal dark:text-gray-200">${item.name}</span>
+          <span class="text-terracotta bg-terracotta/10 px-2 py-0.5 rounded font-semibold text-[11px]">${item.gift}</span>
+        `;
+        listEl.appendChild(li);
+      });
+    }
+    renderRecentWinners();
+
+    function generateUniqueNumericCode() {
+      let code, attempts = 0;
+      do {
+        code = Math.floor(100000 + Math.random() * 900000).toString();
+        attempts++;
+      } while (usedCodes[code] && attempts < 1000);
+      usedCodes[code] = true;
+      localStorage.setItem('cm_used_codes', JSON.stringify(usedCodes));
+      return code;
+    }
+
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+    function initAudio() {
+      if (!audioCtx) audioCtx = new AudioCtx();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+    }
+    function playTickSound() {
+      if (!soundEnabled) return;
+      initAudio();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(650, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.035);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.035);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.04);
+      } catch(e){}
+    }
+    function playWinSound() {
+      if (!soundEnabled) return;
+      initAudio();
+      [261.63, 329.63, 392.00, 523.25, 659.25, 783.99].forEach((freq, idx) => {
+        setTimeout(() => {
+          try {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.35);
+          } catch(e){}
+        }, idx * 110);
+      });
+    }
+
+    document.getElementById('wheelSoundToggle').addEventListener('click', function() {
+      soundEnabled = !soundEnabled;
+      this.innerText = soundEnabled ? '🔊 Sound On' : '🔇 Muted';
+    });
+
+    const customerForm = document.getElementById('customerForm');
+    const spinWheelBtn = document.getElementById('spinWheelBtn');
+    const duplicateWarning = document.getElementById('duplicateWarning');
+
+    customerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      duplicateWarning.classList.add('hidden');
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const billSuffix = document.getElementById('custBillSuffix').value.trim();
+      if (!name || !phone || !billSuffix) return;
+      const fullBillNo = (BILL_PREFIX + billSuffix).toUpperCase();
+
+      if (usedBills[fullBillNo]) {
+        const prior = usedBills[fullBillNo];
+        duplicateWarning.innerHTML = `<strong>❌ Invoice Already Used!</strong><br>Invoice <strong>${fullBillNo}</strong> was already spun by <strong>${prior.name}</strong> on ${prior.date}.`;
+        duplicateWarning.classList.remove('hidden');
+        return;
+      }
+
+      verifiedCustomer = { name, phone, bill: fullBillNo };
+      document.getElementById('badgeName').innerText = name;
+      document.getElementById('badgeBill').innerText = `Invoice: ${fullBillNo}`;
+      document.getElementById('badgePhone').innerText = `Phone: ${phone}`;
+      document.getElementById('checkinSection').classList.add('hidden');
+      document.getElementById('verifiedSection').classList.remove('hidden');
+      spinWheelBtn.disabled = false;
+      initAudio();
+    });
+
+    const canvas = document.getElementById('spinWheelCanvas');
+    const ctx = canvas.getContext('2d');
+    const numSlices = PRIZES.length;
+    const sliceAngle = (2 * Math.PI) / numSlices;
+
+    function drawWheel() {
+      if (!canvas) return;
+      const radius = canvas.width / 2;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < numSlices; i++) {
+        const start = i * sliceAngle + currentRotation;
+        const end = start + sliceAngle;
+        ctx.beginPath();
+        ctx.moveTo(radius, radius);
+        ctx.arc(radius, radius, radius - 8, start, end);
+        ctx.fillStyle = PRIZES[i].color;
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#281714';
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(radius, radius);
+        ctx.rotate(start + sliceAngle / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 9.8px Poppins, sans-serif';
+        ctx.fillText(PRIZES[i].text, radius - 20, 4);
+        ctx.restore();
+      }
+      ctx.beginPath();
+      ctx.arc(radius, radius, radius - 4, 0, 2 * Math.PI);
+      ctx.strokeStyle = '#C99E32';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+    }
+    drawWheel();
+
+    function isPeakWinHour() {
+      const now = new Date();
+      const nepDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + (345 * 60000));
+      const hours = nepDate.getHours();
+      return hours >= 14 && hours < 20;
+    }
+
+    function selectPrizeIndex() {
+      const isPeak = isPeakWinHour();
+      const rand = Math.random();
+      let cumulative = 0;
+      for (let i = 0; i < PRIZES.length; i++) {
+        const prob = isPeak ? PRIZES[i].probPeak : PRIZES[i].probNormal;
+        cumulative += prob;
+        if (rand <= cumulative) {
+          const claimedCount = dailyPrizesClaimed[PRIZES[i].id] || 0;
+          if (claimedCount >= PRIZES[i].maxDaily) return 0;
+          return i;
+        }
+      }
+      return 0;
+    }
+
+    spinWheelBtn.addEventListener('click', () => {
+      if (isSpinning || !verifiedCustomer) return;
+      isSpinning = true;
+      spinWheelBtn.disabled = true;
+
+      const winningIndex = selectPrizeIndex();
+      const pointerAngle = (3 * Math.PI) / 2;
+      const sliceCenter = winningIndex * sliceAngle + (sliceAngle / 2);
+      const targetOffset = pointerAngle - sliceCenter;
+      const fullRotations = 6 * 2 * Math.PI;
+      const currentNorm = currentRotation % (2 * Math.PI);
+      const totalRotationNeeded = fullRotations + (targetOffset - currentNorm);
+      const startTime = performance.now();
+      const duration = 5200;
+      let lastPeg = -1;
+
+      function animate(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        currentRotation = currentNorm + (totalRotationNeeded * ease);
+        drawWheel();
+
+        const currentSlice = Math.floor(((pointerAngle - (currentRotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI)) / sliceAngle);
+        if (currentSlice !== lastPeg) {
+          playTickSound();
+          lastPeg = currentSlice;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          isSpinning = false;
+          handleSpinResult(PRIZES[winningIndex]);
+        }
+      }
+      requestAnimationFrame(animate);
+    });
+
+    function handleSpinResult(prize) {
+      const claimCode = generateUniqueNumericCode();
+      const now = new Date();
+      const nepTime = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + (345 * 60000));
+      const timestamp = nepTime.toLocaleString('en-US', { hour12: true }) + " (GMT+5:45)";
+
+      usedBills[verifiedCustomer.bill] = {
+        name: verifiedCustomer.name,
+        phone: verifiedCustomer.phone,
+        prize: prize.text,
+        voucherCode: claimCode,
+        date: timestamp
+      };
+      localStorage.setItem('cm_used_bills', JSON.stringify(usedBills));
+
+      if (prize.maxDaily !== Infinity) {
+        dailyPrizesClaimed[prize.id] = (dailyPrizesClaimed[prize.id] || 0) + 1;
+        localStorage.setItem(todayKey, JSON.stringify(dailyPrizesClaimed));
+      }
+
+      recentWinners.push({ name: verifiedCustomer.name, gift: prize.text });
+      localStorage.setItem('cm_recent_winners', JSON.stringify(recentWinners));
+      renderRecentWinners();
+
+      playWinSound();
+      confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+
+      document.getElementById('modalTitle').innerText = `🎉 Congratulations, ${verifiedCustomer.name}!`;
+      document.getElementById('modalPrize').innerText = `You won: ${prize.text}`;
+      document.getElementById('vCustName').innerText = verifiedCustomer.name;
+      document.getElementById('vCustBill').innerText = verifiedCustomer.bill;
+      document.getElementById('vNumericCode').innerText = claimCode;
+      
+      const waMsg = encodeURIComponent(`Hello Chiya Mantra! I won ${prize.text} on Invoice ${verifiedCustomer.bill}. My Voucher Code is: ${claimCode}`);
+      document.getElementById('modalWaBtn').href = `https://wa.me/9779811329810?text=${waMsg}`;
+      
+      document.getElementById('resultModal').classList.remove('hidden');
+
+      const payload = {
+        timestamp: timestamp,
+        customerName: verifiedCustomer.name,
+        phoneNo: verifiedCustomer.phone,
+        billNo: verifiedCustomer.bill,
+        giftWon: prize.text,
+        voucherNo: claimCode,
+        isWinner: true
+      };
+
+      fetch(GOOGLE_SHEET_API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        document.getElementById('emailStatus').innerText = `✅ Entry saved to Spreadsheet & Winner details emailed to management.`;
+      })
+      .catch(() => {
+        document.getElementById('emailStatus').innerText = `⚠️ Logged locally. Please check your internet connection.`;
+      });
+    }
+
+    function closeSpinModal() {
+      document.getElementById('resultModal').classList.add('hidden');
+      verifiedCustomer = null;
+      document.getElementById('customerForm').reset();
+      document.getElementById('checkinSection').classList.remove('hidden');
+      document.getElementById('verifiedSection').classList.add('hidden');
+      spinWheelBtn.disabled = true;
+    }
+  </script>
+</body>
+</html>
