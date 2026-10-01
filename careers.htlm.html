@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png">
+  <title>Careers | Chiya Mantra</title>
+  <meta name="description" content="Explore open vacancies at Chiya Mantra in Gaighat including Cook, Kitchen Helper, Dishwasher, Delivery Rider, and more. Apply online directly.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C99E32',
+            'terracotta-dark': '#A67C1E',
+            forest: '#0E1E17',
+            'forest-dark': '#08120E',
+            cream: '#FAF8F5',
+            'cream-surface': '#EFE9DE',
+            charcoal: '#171615',
+            'dark-bg': '#0B0D0C',
+            'dark-card': '#141816',
+            'dark-border': '#262D29',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+          keyframes: {
+            orderGlow: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 15px 2px rgba(201, 158, 50, 0.6)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 25px 6px rgba(201, 158, 50, 0.9)' }
+            }
+          },
+          animation: {
+            'order-glow': 'orderGlow 2.2s infinite ease-in-out',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Prevent FOUC Theme Script -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .btn-reactive-order {
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-reactive-order:hover {
+      transform: translateY(-2px) scale(1.06);
+      box-shadow: 0 10px 25px -3px rgba(201, 158, 50, 0.8);
+    }
+    .btn-reactive-order:active {
+      transform: translateY(1px) scale(0.97);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-cream text-charcoal dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-forest-dark text-cream text-xs sm:text-sm py-2 px-4 text-center flex flex-wrap items-center justify-center gap-2 border-b border-forest">
+    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-terracotta text-forest-dark animate-pulse">
+      <i class="fa-solid fa-motorcycle mr-1"></i> Night Owl Food Delivery
+    </span>
+    <p class="leading-tight">
+      Late Night Food &amp; Beverages Delivery: <strong class="text-amber-300">8:00 PM – 3:00 AM</strong> Every Night
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <span class="inline-block bg-emerald-700/90 text-emerald-100 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-emerald-500/50">Free Home Delivery</span>
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="underline text-amber-300 font-bold hover:text-white transition-colors">Order Now</a>
+    </p>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-cream-surface dark:border-dark-border shadow-sm transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="/" class="flex items-center space-x-3 group">
+          <img 
+            src="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png" 
+            alt="Chiya Mantra Logo" 
+            class="w-12 h-12 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform border-2 border-terracotta/40 dark:border-emerald-600/40"
+          >
+          <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-400 block leading-none">Chiya Mantra</span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-7">
+          <a href="/" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Home</a>
+          <a href="/offers" class="py-2 text-sm font-semibold text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors flex items-center space-x-1.5">
+            <span>Offers &amp; Spin</span>
+            <span class="bg-gradient-to-r from-amber-500 to-terracotta text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">WIN</span>
+          </a>
+          <a href="/about" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">About Us</a>
+          <a href="/reservation" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Book a Table</a>
+          <a href="/careers" class="py-2 text-sm font-semibold text-terracotta border-b-2 border-terracotta">Careers</a>
+          <a href="/contact" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Contact Us</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center space-x-3">
+          <button id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border text-charcoal dark:text-amber-300 hover:bg-cream-surface dark:hover:bg-dark-card transition-colors">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </button>
+
+          <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-full border border-amber-500/40 text-xs font-semibold text-forest dark:text-amber-300 hover:bg-amber-100/60 dark:hover:bg-amber-900/30 transition-colors">
+            <i class="fa-brands fa-google text-amber-600"></i>
+            <span>Rate Us</span>
+          </a>
+
+          <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="btn-reactive-order animate-order-glow relative group inline-flex items-center space-x-2 bg-gradient-to-r from-terracotta via-amber-500 to-amber-600 hover:from-terracotta-dark hover:to-amber-700 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-xl ring-2 ring-amber-400/80">
+            <i class="fa-solid fa-truck-fast text-white group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Order Online</span>
+            <span class="absolute -top-2.5 -right-2 bg-forest dark:bg-emerald-700 text-[10px] text-white px-2 py-0.5 rounded-full border border-cream shadow font-bold">8PM - 3AM</span>
+          </a>
+        </div>
+
+        <div class="flex items-center space-x-2 md:hidden">
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border text-charcoal dark:text-amber-300">
+            <i id="themeIconMobile" class="fa-solid fa-moon text-sm"></i>
+          </button>
+          <button id="mobileMenuBtn" type="button" aria-label="Toggle navigation menu" class="text-charcoal dark:text-gray-100 hover:text-terracotta p-2 focus:outline-none">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-cream-surface dark:border-dark-border bg-cream dark:bg-dark-bg px-4 pt-3 pb-6 space-y-2 transition-colors duration-300">
+      <a href="/" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Home</a>
+      <a href="/offers" class="block px-4 py-2.5 rounded-lg text-base font-semibold text-amber-600 dark:text-amber-300 hover:bg-cream-surface dark:hover:bg-dark-card flex items-center justify-between">
+        <span>🎁 Offers &amp; Spin Wheel</span>
+        <span class="bg-forest text-amber-300 text-xs px-2 py-0.5 rounded-full font-bold">Win Gifts</span>
+      </a>
+      <a href="/about" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">About Us</a>
+      <a href="/reservation" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Book a Table</a>
+      <a href="/careers" class="block px-4 py-2.5 rounded-lg text-base font-semibold bg-terracotta text-forest-dark">Careers</a>
+      <a href="/contact" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Contact Us</a>
+      
+      <div class="pt-3 space-y-2">
+        <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center space-x-2 border border-amber-600/30 bg-amber-50 dark:bg-amber-950/40 text-forest dark:text-amber-200 py-2.5 rounded-xl font-medium text-sm">
+          <i class="fa-brands fa-google text-amber-600"></i>
+          <span>Rate Us on Google</span>
+        </a>
+        <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="btn-reactive-order animate-order-glow w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-terracotta to-amber-600 text-white py-3.5 rounded-xl font-bold shadow-lg ring-2 ring-amber-400">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Order Online (8 PM - 3 AM) • Free Delivery</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Careers Content -->
+  <main class="flex-grow py-14 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">Join Our Team</span>
+      <h1 class="font-serif text-3xl sm:text-4xl font-bold text-forest dark:text-emerald-400 mt-1">Careers at Chiya Mantra</h1>
+      <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">Become part of our vibrant, warm hospitality team in Gaighat.</p>
+    </div>
+
+    <!-- Active Open Vacancies Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+      
+      <!-- Kitchen Helper Card -->
+      <div class="bg-white dark:bg-dark-card p-7 rounded-3xl border border-cream-surface dark:border-dark-border shadow-sm flex flex-col justify-between hover:border-terracotta transition-colors">
+        <div>
+          <span class="bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block uppercase tracking-wider">
+            Evening Shift • Urgent Opening
+          </span>
+          <h3 class="font-serif text-2xl font-bold text-forest dark:text-emerald-300">Kitchen Helper</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-2.5 leading-relaxed">
+            Assist our chef in food preparation, snack frying, ingredient chopping, and maintaining kitchen cleanliness during our evening rush.
+          </p>
+        </div>
+        <button onclick="applyForRole('Kitchen Helper')" class="mt-6 w-full py-3 px-4 bg-forest dark:bg-emerald-700 hover:bg-forest-dark dark:hover:bg-emerald-800 text-white rounded-xl text-sm font-bold transition-all shadow-md flex items-center justify-center gap-2">
+          <span>Apply Now</span>
+          <i class="fa-solid fa-arrow-down text-xs"></i>
+        </button>
+      </div>
+
+      <!-- Dishwasher Card -->
+      <div class="bg-white dark:bg-dark-card p-7 rounded-3xl border border-cream-surface dark:border-dark-border shadow-sm flex flex-col justify-between hover:border-terracotta transition-colors">
+        <div>
+          <span class="bg-terracotta/10 text-terracotta text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block uppercase tracking-wider">
+            Full Time • Urgent Opening
+          </span>
+          <h3 class="font-serif text-2xl font-bold text-forest dark:text-emerald-300">Dishwasher</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-2.5 leading-relaxed">
+            Maintain top kitchen hygiene, promptly wash and sanitize traditional clay matkas, glassware, utensils, and support dishware management.
+          </p>
+        </div>
+        <button onclick="applyForRole('Dishwasher')" class="mt-6 w-full py-3 px-4 bg-forest dark:bg-emerald-700 hover:bg-forest-dark dark:hover:bg-emerald-800 text-white rounded-xl text-sm font-bold transition-all shadow-md flex items-center justify-center gap-2">
+          <span>Apply Now</span>
+          <i class="fa-solid fa-arrow-down text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Application Form Container -->
+    <div id="application-form-container" class="max-w-2xl mx-auto bg-white dark:bg-dark-card p-8 sm:p-10 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border">
+      <div class="text-center mb-6">
+        <h2 class="font-serif text-2xl font-bold text-forest dark:text-emerald-400">Submit Your Job Application</h2>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Fill out the form below to submit your interest directly to our hiring desk.</p>
+      </div>
+
+      <form action="https://formsubmit.co/info.chiyamantra@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="return validateFileSize()" class="space-y-5">
+        <input type="hidden" name="_subject" value="New Job Application - Chiya Mantra">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div>
+          <label for="fullName" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Full Name *</label>
+          <input type="text" id="fullName" name="Full Name" required placeholder="Birat Thapa" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm focus:ring-2 focus:ring-terracotta outline-none">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="contactNo" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Contact Number *</label>
+            <input type="tel" id="contactNo" name="Contact Number" required placeholder="+977-98XXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm focus:ring-2 focus:ring-terracotta outline-none">
+          </div>
+          <div>
+            <label for="emailAddr" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Email Address *</label>
+            <input type="email" id="emailAddr" name="Email" required placeholder="youremail@domain.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm focus:ring-2 focus:ring-terracotta outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label for="roleInterest" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Position Applied For *</label>
+          <select id="roleInterest" name="Position Applied" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm focus:ring-2 focus:ring-terracotta outline-none">
+            <option value="">-- Select Position --</option>
+            <option value="Cook">Cook</option>
+            <option value="Kitchen Helper">Kitchen Helper</option>
+            <option value="Dishwasher">Dishwasher</option>
+            <option value="Delivery Rider">Delivery Rider</option>
+            <option value="Waiter / Waitress">Waiter / Waitress</option>
+            <option value="Cashier">Cashier</option>
+            <option value="Other Positions">Other Positions</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="resumeFile" class="block text-xs font-semibold uppercase text-charcoal/70 dark:text-gray-300 mb-1">Upload CV / Document (Max 15MB) *</label>
+          <input type="file" id="resumeFile" name="attachment" accept=".doc,.docx,.pdf,.jpg,.jpeg,.png" required class="w-full px-3 py-2 border border-gray-200 dark:border-dark-border dark:bg-dark-bg text-sm rounded-xl outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-terracotta file:text-forest-dark">
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-terracotta to-amber-600 hover:from-terracotta-dark hover:to-amber-700 text-white font-bold rounded-xl shadow-md transition-all mt-4">
+          Upload &amp; Submit Application
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-forest-dark text-cream pt-14 pb-8 border-t border-forest">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-forest/60">
+        <div class="md:col-span-2">
+          <span class="font-serif text-2xl font-bold text-white block">Chiya Mantra</span>
+          <p class="text-gray-300 text-sm mt-3 max-w-md">Come for the tea. Stay for the vibe. Signature Matka Tea, Momo, Noodles, Fried Rice, Biryani, snacks, Cloud Hookah, board games, and free late-night home delivery.</p>
+        </div>
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="/" class="hover:text-amber-200">Home</a></li>
+            <li><a href="/offers" class="hover:text-amber-200 text-terracotta">Offers &amp; Spin Wheel</a></li>
+            <li><a href="/about" class="hover:text-amber-200">About Us</a></li>
+            <li><a href="/reservation" class="hover:text-amber-200">Book a Table</a></li>
+            <li><a href="/careers" class="hover:text-amber-200">Careers</a></li>
+            <li><a href="/contact" class="hover:text-amber-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Mailing Address</h4>
+          <p class="text-xs text-gray-300">Triyuga Municipality-11, P.G. Chowk, Gaighat, Udaypur, Nepal</p>
+          <p class="text-xs text-amber-300 mt-2">Phone: +977-9811329810</p>
+          <p class="text-xs text-gray-300">Dine-in: 8:00 AM – 9:30 PM</p>
+          <p class="text-xs text-amber-200">Delivery: 8:00 PM – 3:00 AM</p>
+        </div>
+      </div>
+      <div class="pt-6 flex justify-between text-xs text-gray-400">
+        <p>© 2026 Chiya Mantra. All rights reserved.</p>
+        <p>Free Late Night Delivery (8PM - 3AM)</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateThemeIcons(isDark) {
+      const iconDesktop = document.getElementById('themeIcon');
+      const iconMobile = document.getElementById('themeIconMobile');
+      if (isDark) {
+        if (iconDesktop) { iconDesktop.classList.remove('fa-moon'); iconDesktop.classList.add('fa-sun'); }
+        if (iconMobile) { iconMobile.classList.remove('fa-moon'); iconMobile.classList.add('fa-sun'); }
+      } else {
+        if (iconDesktop) { iconDesktop.classList.remove('fa-sun'); iconDesktop.classList.add('fa-moon'); }
+        if (iconMobile) { iconMobile.classList.remove('fa-moon'); iconMobile.classList.add('fa-sun'); }
+      }
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        updateThemeIcons(false);
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        updateThemeIcons(true);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeIcons(document.documentElement.classList.contains('dark'));
+    });
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Auto-select position & smooth scroll to form
+    function applyForRole(roleName) {
+      const selectElement = document.getElementById('roleInterest');
+      if (selectElement) {
+        selectElement.value = roleName;
+      }
+      const formContainer = document.getElementById('application-form-container');
+      if (formContainer) {
+        formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function validateFileSize() {
+      const fileInput = document.getElementById('resumeFile');
+      const file = fileInput.files[0];
+      const maxSizeBytes = 15 * 1024 * 1024; // 15MB
+
+      if (file && file.size > maxSizeBytes) {
+        alert('File size exceeds the 15MB limit. Please upload a smaller file.');
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
