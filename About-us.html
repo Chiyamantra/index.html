@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png">
+  <title>About Us | Chiya Mantra</title>
+  <meta name="description" content="Welcome to Chiya Mantra in Gaighat. Learn more about our story, signature Matka Tea, food offerings, ambience, and late-night free home delivery.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C99E32',
+            'terracotta-dark': '#A67C1E',
+            forest: '#0E1E17',
+            'forest-dark': '#08120E',
+            cream: '#FAF8F5',
+            'cream-surface': '#EFE9DE',
+            charcoal: '#171615',
+            'dark-bg': '#0B0D0C',
+            'dark-card': '#141816',
+            'dark-border': '#262D29',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+          keyframes: {
+            orderGlow: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 15px 2px rgba(201, 158, 50, 0.6), 0 0 0 0 rgba(201, 158, 50, 0.4)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 25px 6px rgba(201, 158, 50, 0.9), 0 0 0 10px rgba(201, 158, 50, 0)' }
+            }
+          },
+          animation: {
+            'order-glow': 'orderGlow 2.2s infinite ease-in-out',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Dark Mode Script -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .btn-reactive-order {
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-reactive-order:hover {
+      transform: translateY(-2px) scale(1.06);
+      box-shadow: 0 10px 25px -3px rgba(201, 158, 50, 0.8);
+    }
+    .btn-reactive-order:active {
+      transform: translateY(1px) scale(0.97);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-cream text-charcoal dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Top Announcement Bar (Night Owl Delivery) -->
+  <div class="bg-forest-dark text-cream text-xs sm:text-sm py-2 px-4 text-center flex flex-wrap items-center justify-center gap-2 border-b border-forest">
+    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-terracotta text-forest-dark animate-pulse">
+      <i class="fa-solid fa-motorcycle mr-1"></i> Night Owl Food Delivery
+    </span>
+    <p class="leading-tight">
+      Late Night Food &amp; Beverages Delivery: <strong class="text-amber-300">8:00 PM – 3:00 AM</strong> Every Night
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <span class="inline-block bg-emerald-700/90 text-emerald-100 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-emerald-500/50">Free Home Delivery</span>
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="underline text-amber-300 font-bold hover:text-white transition-colors">Order Now</a>
+    </p>
+  </div>
+
+  <!-- Sticky Header & Navigation -->
+  <header class="sticky top-0 z-50 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-cream-surface dark:border-dark-border shadow-sm transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-3 group">
+          <img 
+            src="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png" 
+            alt="Chiya Mantra Logo" 
+            class="w-12 h-12 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform border-2 border-terracotta/40 dark:border-emerald-600/40"
+          >
+          <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-400 block leading-none">Chiya Mantra</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-7">
+          <a href="/" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Home</a>
+          <a href="/offers" class="py-2 text-sm font-semibold text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors flex items-center space-x-1.5">
+            <span>Offers &amp; Spin</span>
+            <span class="bg-gradient-to-r from-amber-500 to-terracotta text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">WIN</span>
+          </a>
+          <a href="/about" class="py-2 text-sm font-semibold text-terracotta border-b-2 border-terracotta">About Us</a>
+          <a href="/reservation" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Book a Table</a>
+          <a href="/careers" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Careers</a>
+          <a href="/contact" class="py-2 text-sm font-medium text-charcoal dark:text-gray-200 hover:text-terracotta transition-colors">Contact Us</a>
+        </nav>
+
+        <!-- Right Header Action Area (Dark mode, Rate Us, Reactive Order Button) -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border text-charcoal dark:text-amber-300 hover:bg-cream-surface dark:hover:bg-dark-card transition-colors">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </button>
+
+          <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-full border border-amber-500/40 text-xs font-semibold text-forest dark:text-amber-300 hover:bg-amber-100/60 dark:hover:bg-amber-900/30 transition-colors">
+            <i class="fa-brands fa-google text-amber-600"></i>
+            <span>Rate Us</span>
+          </a>
+
+          <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="btn-reactive-order animate-order-glow relative group inline-flex items-center space-x-2 bg-gradient-to-r from-terracotta via-amber-500 to-amber-600 hover:from-terracotta-dark hover:to-amber-700 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-xl ring-2 ring-amber-400/80">
+            <i class="fa-solid fa-truck-fast text-white group-hover:rotate-12 transition-transform duration-300"></i>
+            <span>Order Online</span>
+            <span class="absolute -top-2.5 -right-2 bg-forest dark:bg-emerald-700 text-[10px] text-white px-2 py-0.5 rounded-full border border-cream shadow font-bold">8PM - 3AM</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex items-center space-x-2 md:hidden">
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border text-charcoal dark:text-amber-300">
+            <i id="themeIconMobile" class="fa-solid fa-moon text-sm"></i>
+          </button>
+          <button id="mobileMenuBtn" type="button" aria-label="Toggle navigation menu" class="text-charcoal dark:text-gray-100 hover:text-terracotta p-2 focus:outline-none">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-cream-surface dark:border-dark-border bg-cream dark:bg-dark-bg px-4 pt-3 pb-6 space-y-2 transition-colors duration-300">
+      <a href="/" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Home</a>
+      <a href="/offers" class="block px-4 py-2.5 rounded-lg text-base font-semibold text-amber-600 dark:text-amber-300 hover:bg-cream-surface dark:hover:bg-dark-card flex items-center justify-between">
+        <span>🎁 Offers &amp; Spin Wheel</span>
+        <span class="bg-terracotta text-forest-dark text-xs px-2 py-0.5 rounded-full font-bold">Win Gifts</span>
+      </a>
+      <a href="/about" class="block px-4 py-2.5 rounded-lg text-base font-semibold bg-terracotta text-forest-dark">About Us</a>
+      <a href="/reservation" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Book a Table</a>
+      <a href="/careers" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Careers</a>
+      <a href="/contact" class="block px-4 py-2.5 rounded-lg text-base font-medium text-charcoal dark:text-gray-200 hover:bg-cream-surface dark:hover:bg-dark-card">Contact Us</a>
+      
+      <div class="pt-3 space-y-2">
+        <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center space-x-2 border border-amber-600/30 bg-amber-50 dark:bg-amber-950/40 text-forest dark:text-amber-200 py-2.5 rounded-xl font-medium text-sm">
+          <i class="fa-brands fa-google text-amber-600"></i>
+          <span>Rate Us on Google</span>
+        </a>
+        <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" rel="noopener noreferrer" class="btn-reactive-order animate-order-glow w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-terracotta to-amber-600 text-white py-3.5 rounded-xl font-bold shadow-lg ring-2 ring-amber-400">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Order Online (8 PM - 3 AM) • Free Delivery</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Us Content -->
+  <main class="flex-grow py-14 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">About Chiya Mantra</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-forest dark:text-emerald-400 mt-2">Come for the tea. Stay for the vibe.</h1>
+    </div>
+
+    <div class="bg-white dark:bg-dark-card p-8 sm:p-12 rounded-3xl shadow-sm border border-cream-surface dark:border-dark-border leading-relaxed text-charcoal/85 dark:text-gray-300 space-y-6 text-base sm:text-lg font-light transition-colors duration-300">
+      <p class="font-normal text-forest dark:text-emerald-300 text-lg sm:text-xl leading-relaxed">
+        Welcome to Chiya Mantra—a cozy destination where flavorful food, refreshing drinks, and a peaceful atmosphere come together to create the perfect place to relax, connect, and enjoy good moments.
+      </p>
+      <p>
+        At Chiya Mantra, tea is at the heart of what we do. We offer a variety of teas to suit every taste, with our signature Matka Tea taking center stage. Alongside our tea selection, we serve a range of flavorful food and refreshing beverages, prepared with quality ingredients and a passion for great taste. We proudly serve fresh Momo, Noodles, Fried Rice, Biryani, and an assorted menu of Veg &amp; Non-Veg snacks.
+      </p>
+      <p>
+        Our café is designed to offer a peaceful and cozy atmosphere, surrounded by lush plants, warm low lighting, and a relaxed ambience. It’s the perfect setting for friends and families to hang out, catch up, and create memorable moments.
+      </p>
+      <p>
+        For those who enjoy a laid-back experience, we also offer Hookah and a selection of indoor board games (including UNO, Jenga Block, and Ludo) to keep you entertained while waiting or simply enjoying time with your company.
+      </p>
+      <p>
+        And when you’d rather enjoy Chiya Mantra from the comfort of your home, we’ve got you covered with our late-night home delivery service. Whether it’s a late-night craving, a cozy evening at home, or simply your favorite food and tea, you can enjoy the Chiya Mantra experience wherever you are.
+      </p>
+      <div class="pt-4 border-t border-cream-surface dark:border-dark-border">
+        <p class="font-medium text-forest dark:text-emerald-300 italic">
+          At Chiya Mantra, we believe a great café experience is about more than food and drinks. It’s about good tea, flavorful food, great company, a welcoming atmosphere, and moments worth remembering.
+        </p>
+        <p class="mt-4 font-serif text-terracotta font-bold text-xl">
+          Come for the tea. Stay for the vibe. Enjoy Chiya Mantra anytime, anywhere.
+        </p>
+      </div>
+    </div>
+
+    <!-- Four Pillars Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+      <div class="bg-forest text-cream p-5 rounded-2xl text-center shadow-sm">
+        <i class="fa-solid fa-mug-saucer text-2xl text-terracotta mb-2"></i>
+        <h4 class="font-semibold text-sm">Signature Matka Tea</h4>
+      </div>
+      <div class="bg-forest text-cream p-5 rounded-2xl text-center shadow-sm">
+        <i class="fa-solid fa-leaf text-2xl text-terracotta mb-2"></i>
+        <h4 class="font-semibold text-sm">Green Plants &amp; Ambience</h4>
+      </div>
+      <div class="bg-forest text-cream p-5 rounded-2xl text-center shadow-sm">
+        <i class="fa-solid fa-dice text-2xl text-terracotta mb-2"></i>
+        <h4 class="font-semibold text-sm">UNO, Jenga, Ludo &amp; Hookah</h4>
+      </div>
+      <div class="bg-forest text-cream p-5 rounded-2xl text-center shadow-sm">
+        <i class="fa-solid fa-motorcycle text-2xl text-terracotta mb-2"></i>
+        <h4 class="font-semibold text-sm">8PM - 3AM Free Delivery</h4>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-forest-dark text-cream pt-14 pb-8 border-t border-forest">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-forest/60">
+        
+        <div class="md:col-span-2">
+          <span class="font-serif text-2xl font-bold text-white block">Chiya Mantra</span>
+          <p class="text-gray-300 text-sm mt-3 max-w-md leading-relaxed">
+            Come for the tea. Stay for the vibe. Your destination for Matka Tea, Momo, Noodles, Fried Rice, Biryani, Veg &amp; Non-Veg snacks, Cloud Hookah, board games (UNO, Jenga Block, Ludo), and late-night free food delivery.
+          </p>
+          <div class="flex items-center space-x-3 mt-6">
+            <a href="https://www.facebook.com/share/1Dc5XcnW1r/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full bg-forest text-cream flex items-center justify-center hover:bg-terracotta hover:text-forest-dark transition-colors">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/chiyamantra.np" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-full bg-forest text-cream flex items-center justify-center hover:bg-terracotta hover:text-forest-dark transition-colors">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com/@chiyamantra2025" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-10 h-10 rounded-full bg-forest text-cream flex items-center justify-center hover:bg-terracotta hover:text-forest-dark transition-colors">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://wa.me/9779811329810" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-forest text-cream flex items-center justify-center hover:bg-terracotta hover:text-forest-dark transition-colors">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" rel="noopener noreferrer" aria-label="Google Review" title="Rate us on Google" class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all">
+              <i class="fa-brands fa-google"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Quick Navigation</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="/" class="hover:text-amber-200 transition-colors">Home</a></li>
+            <li><a href="/offers" class="hover:text-amber-200 font-semibold text-terracotta transition-colors">🎁 Offers &amp; Spin Wheel</a></li>
+            <li><a href="/about" class="hover:text-amber-200 transition-colors">About Chiya Mantra</a></li>
+            <li><a href="/reservation" class="hover:text-amber-200 transition-colors">Book a Table (10AM - 8PM)</a></li>
+            <li><a href="/careers" class="hover:text-amber-200 transition-colors">Open Vacancies</a></li>
+            <li><a href="/contact" class="hover:text-amber-200 transition-colors">Contact Us</a></li>
+            <li><a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="hover:text-amber-200 transition-colors font-semibold">Late Night Delivery (8PM - 3AM)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Mailing Address</h4>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Triyuga Municipality-11, P.G. Chowk, Gaighat, Udaypur, Nepal
+          </p>
+          <p class="text-xs text-amber-300 mt-3">Phone: +977-9811329810</p>
+          <p class="text-xs text-gray-300">Dine-in: 8:00 AM – 9:30 PM</p>
+          <p class="text-xs text-emerald-300">Table Booking: 10:00 AM – 8:00 PM</p>
+          <p class="text-xs text-amber-200/90 font-semibold">Online Delivery: 8:00 PM – 3:00 AM</p>
+          <p class="text-[11px] text-emerald-400 font-semibold">Free Home Delivery</p>
+          <p class="text-xs text-gray-300 mt-2">Write us at: info.chiyamantra@gmail.com</p>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400">
+        <p>© 2026 Chiya Mantra. All rights reserved.</p>
+        <p class="mt-2 sm:mt-0">Dine-in (8AM - 9:30PM) &bull; Free Late Night Delivery (8PM - 3AM)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle & Mobile Menu Script -->
+  <script>
+    function updateThemeIcons(isDark) {
+      const iconDesktop = document.getElementById('themeIcon');
+      const iconMobile = document.getElementById('themeIconMobile');
+      
+      if (isDark) {
+        if (iconDesktop) { iconDesktop.classList.remove('fa-moon'); iconDesktop.classList.add('fa-sun'); }
+        if (iconMobile) { iconMobile.classList.remove('fa-moon'); iconMobile.classList.add('fa-sun'); }
+      } else {
+        if (iconDesktop) { iconDesktop.classList.remove('fa-sun'); iconDesktop.classList.add('fa-moon'); }
+        if (iconMobile) { iconMobile.classList.remove('fa-sun'); iconMobile.classList.add('fa-moon'); }
+      }
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        updateThemeIcons(false);
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        updateThemeIcons(true);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateThemeIcons(document.documentElement.classList.contains('dark'));
+    });
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
