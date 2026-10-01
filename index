@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png">
+  <title>Chiya Mantra | Best Cafe in Gaighat | Cozy Vibes & Late Night Food Delivery</title>
+  <meta name="description" content="Visit Chiya Mantra in Gaighat for signature Matka Tea, Momo, Noodles, Fried Rice, Biryani, Veg & Non-Veg snacks, Cloud Hookah, UNO, Jenga, and Ludo. Late-night food & beverages free home delivery from 8 PM to 3 AM.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C99E32',
+            'terracotta-dark': '#A67C1E',
+            forest: '#0E1E17',
+            'forest-dark': '#08120E',
+            cream: '#FAF8F5',
+            'cream-surface': '#EFE9DE',
+            charcoal: '#171615',
+            'dark-bg': '#0B0D0C',
+            'dark-card': '#141816',
+            'dark-border': '#262D29',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+          keyframes: {
+            orderGlow: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 15px 2px rgba(201, 158, 50, 0.6)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 25px 6px rgba(201, 158, 50, 0.9)' }
+            }
+          },
+          animation: {
+            'order-glow': 'orderGlow 2.2s infinite ease-in-out',
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .hero-gradient {
+      background: linear-gradient(rgba(14, 30, 23, 0.88), rgba(11, 13, 12, 0.94)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+    .btn-reactive-order:hover { transform: translateY(-2px) scale(1.06); }
+    .btn-reactive-order:active { transform: translateY(1px) scale(0.97); }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-cream text-charcoal dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Announcement Bar -->
+  <div class="bg-forest-dark text-cream text-xs sm:text-sm py-2 px-4 text-center flex flex-wrap items-center justify-center gap-2 border-b border-forest">
+    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-terracotta text-forest-dark animate-pulse">
+      <i class="fa-solid fa-motorcycle mr-1"></i> Night Owl Food Delivery
+    </span>
+    <p class="leading-tight">
+      Late Night Food &amp; Beverages Delivery: <strong class="text-amber-300">8:00 PM – 3:00 AM</strong> Every Night
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <span class="inline-block bg-emerald-700/90 text-emerald-100 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-emerald-500/50">Free Home Delivery</span>
+      <span class="hidden sm:inline mx-1.5">•</span>
+      <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="underline text-amber-300 font-bold hover:text-white transition-colors">Order Now</a>
+    </p>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md border-b border-cream-surface dark:border-dark-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center space-x-3 group">
+          <img src="https://raw.githubusercontent.com/Chiyamantra/index.html/main/Photo/Logo.png" alt="Chiya Mantra Logo" class="w-12 h-12 rounded-full object-cover border-2 border-terracotta/40">
+          <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-400">Chiya Mantra</span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-7">
+          <a href="/" class="py-2 text-sm font-semibold text-terracotta border-b-2 border-terracotta">Home</a>
+          <a href="/offers" class="py-2 text-sm font-semibold hover:text-terracotta transition-colors flex items-center space-x-1.5">
+            <span>Offers &amp; Spin</span>
+            <span class="bg-gradient-to-r from-amber-500 to-terracotta text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">WIN</span>
+          </a>
+          <a href="/about" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">About Us</a>
+          <a href="/reservation" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Book a Table</a>
+          <a href="/careers" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Careers</a>
+          <a href="/contact" class="py-2 text-sm font-medium hover:text-terracotta transition-colors">Contact Us</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center space-x-3">
+          <button onclick="toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border text-charcoal dark:text-amber-300">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </button>
+          <a href="https://maps.app.goo.gl/2VU2DSLmWTUHtXPe7" target="_blank" class="px-3.5 py-2 rounded-full border border-amber-500/40 text-xs font-semibold text-forest dark:text-amber-300">Rate Us</a>
+          <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="btn-reactive-order animate-order-glow inline-flex items-center space-x-2 bg-gradient-to-r from-terracotta to-amber-600 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-xl ring-2 ring-amber-400/80">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Order Online</span>
+            <span class="bg-forest dark:bg-emerald-700 text-[10px] text-white px-2 py-0.5 rounded-full">8PM - 3AM</span>
+          </a>
+        </div>
+
+        <div class="flex items-center space-x-2 md:hidden">
+          <button onclick="toggleTheme()" class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-300 dark:border-dark-border">
+            <i id="themeIconMobile" class="fa-solid fa-moon text-sm"></i>
+          </button>
+          <button id="mobileMenuBtn" class="text-charcoal dark:text-gray-100 p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-cream-surface dark:border-dark-border bg-cream dark:bg-dark-bg px-4 pt-3 pb-6 space-y-2">
+      <a href="/" class="block px-4 py-2.5 rounded-lg text-base font-semibold bg-terracotta text-forest-dark">Home</a>
+      <a href="/offers" class="block px-4 py-2.5 rounded-lg text-base font-semibold text-amber-600 dark:text-amber-300">🎁 Offers &amp; Spin Wheel</a>
+      <a href="/about" class="block px-4 py-2.5 rounded-lg text-base font-medium">About Us</a>
+      <a href="/reservation" class="block px-4 py-2.5 rounded-lg text-base font-medium">Book a Table</a>
+      <a href="/careers" class="block px-4 py-2.5 rounded-lg text-base font-medium">Careers</a>
+      <a href="/contact" class="block px-4 py-2.5 rounded-lg text-base font-medium">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="hero-gradient text-cream py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <a href="/offers" class="inline-flex items-center space-x-2 bg-forest/80 border border-emerald-500/40 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm shadow-sm hover:border-amber-400 transition-colors">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+          <span class="text-xs font-semibold text-amber-200 uppercase tracking-wider">🎉 Spend Rs. 1,000 or more &amp; Spin the Wheel for Daily Rewards!</span>
+        </a>
+        <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+          Come for the tea.<br><span class="text-amber-200 italic font-normal">Stay for the vibe.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Experience our iconic <strong class="text-amber-300 font-semibold">Signature Matka Tea</strong>, savory plates of <strong class="text-amber-200">Momo</strong>, <strong class="text-amber-200">Noodles</strong>, <strong class="text-amber-200">Fried Rice</strong>, <strong class="text-amber-200">Biryani</strong>, a wide range of <strong class="text-amber-200">Veg &amp; Non-Veg Snacks</strong>, smooth <strong class="text-amber-200">Cloud Hookah</strong>, and indoor board games in our cozy plant-filled haven.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://chiyamantraorder.restro.link/en/delivery/" target="_blank" class="btn-reactive-order animate-order-glow w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-terracotta to-amber-600 hover:from-terracotta-dark hover:to-amber-700 text-white px-8 py-4 rounded-full font-bold transition-all shadow-xl ring-2 ring-amber-400/80">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Order Online (8PM - 3AM)</span>
+          </a>
+          <a href="/offers" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-cream border border-white/30 backdrop-blur-sm px-8 py-3.5 rounded-full font-semibold transition-all">
+            <i class="fa-solid fa-dharmachakra"></i>
+            <span>Spin &amp; Win Gifts</span>
+          </a>
+          <a href="/reservation" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 backdrop-blur-sm px-6 py-3.5 rounded-full font-semibold transition-all">
+            <i class="fa-solid fa-chair"></i>
+            <span>Book a Table</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-terracotta text-xs uppercase tracking-widest font-semibold">Taste the Magic</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-forest dark:text-emerald-400 font-bold mt-1">Highlighted Sips &amp; Food Specials</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">Serving freshly prepared Momo, Noodles, Fried Rice, Biryani, Veg &amp; Non-Veg snacks, and our famous Matka Tea.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border-2 border-terracotta/40 text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-2xl"><i class="fa-solid fa-mug-hot"></i></div>
+          <span class="text-[10px] font-bold uppercase text-terracotta bg-terracotta/10 px-2 py-0.5 rounded-full mb-2 inline-block">Signature</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Matka Tea</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400">Slow-boiled spiced chai served in traditional clay pots for an earthy aroma.</p>
+        </div>
+        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-bowl-food"></i></div>
+          <span class="text-[10px] font-bold uppercase text-amber-700 bg-amber-500/10 px-2 py-0.5 rounded-full mb-2 inline-block">Steamed/Fried</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Momo</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400">Juicy dumplings served fresh with spicy sesame and tomato dips.</p>
+        </div>
+        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-rose-500/10 text-rose-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-plate-wheat"></i></div>
+          <span class="text-[10px] font-bold uppercase text-rose-700 bg-rose-500/10 px-2 py-0.5 rounded-full mb-2 inline-block">Wok Fresh</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Noodles &amp; Rice</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400">Smoky wok-tossed chowmein and seasoned fried rice cooked with fresh greens.</p>
+        </div>
+        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-orange-500/10 text-orange-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-fire-burner"></i></div>
+          <span class="text-[10px] font-bold uppercase text-orange-700 bg-orange-500/10 px-2 py-0.5 rounded-full mb-2 inline-block">Aromatic</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Biryani</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400">Fragrant long-grain basmati rice infused with caramelized spices and herbs.</p>
+        </div>
+        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-utensils"></i></div>
+          <span class="text-[10px] font-bold uppercase text-emerald-700 bg-emerald-500/10 px-2 py-0.5 rounded-full mb-2 inline-block">Snacks</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Savory Bites</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400">A wide selection of finger foods and evening snack platters.</p>
+        </div>
+        <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-cream-surface dark:border-dark-border text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-smog"></i></div>
+          <span class="text-[10px] font-bold uppercase text-purple-700 bg-purple-500/10 px-2 py-0.5 rounded-full mb-2 inline-block">Lounge</span>
+          <h3 class="font-serif text-base font-bold text-forest dark:text-emerald-300 mb-2">Cloud Hookah</h3>
+          <p class="text-xs text-gray-600 dark:text-gray-400">Smooth thick clouds available in refreshing mint and sweet blends.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-forest-dark text-cream pt-14 pb-8 border-t border-forest">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-forest/60">
+        <div class="md:col-span-2">
+          <span class="font-serif text-2xl font-bold text-white block">Chiya Mantra</span>
+          <p class="text-gray-300 text-sm mt-3 max-w-md">Come for the tea. Stay for the vibe. Signature Matka Tea, Momo, Noodles, Fried Rice, Biryani, snacks, Cloud Hookah, board games, and free late-night home delivery.</p>
+        </div>
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="/" class="hover:text-amber-200">Home</a></li>
+            <li><a href="/offers" class="hover:text-amber-200 text-terracotta">Offers &amp; Spin Wheel</a></li>
+            <li><a href="/about" class="hover:text-amber-200">About Us</a></li>
+            <li><a href="/reservation" class="hover:text-amber-200">Book a Table</a></li>
+            <li><a href="/careers" class="hover:text-amber-200">Careers</a></li>
+            <li><a href="/contact" class="hover:text-amber-200">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-serif text-lg font-bold text-white mb-4">Mailing Address</h4>
+          <p class="text-xs text-gray-300">Triyuga Municipality-11, P.G. Chowk, Gaighat, Udaypur, Nepal</p>
+          <p class="text-xs text-amber-300 mt-2">Phone: +977-9811329810</p>
+          <p class="text-xs text-gray-300">Dine-in: 8:00 AM – 9:30 PM</p>
+          <p class="text-xs text-amber-200">Delivery: 8:00 PM – 3:00 AM</p>
+        </div>
+      </div>
+      <div class="pt-6 flex justify-between text-xs text-gray-400">
+        <p>© 2026 Chiya Mantra. All rights reserved.</p>
+        <p>Free Late Night Delivery (8PM - 3AM)</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
